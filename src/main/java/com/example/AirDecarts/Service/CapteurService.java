@@ -36,6 +36,12 @@ public class CapteurService {
     	   this.RepoCapteur.save(data) ;
     }
 	
+    public void DeliteCapteurData(int code) {
+    	
+ 	    this.RepoCapteur.deleteById(code); 
+ 	   
+    } 
+       
 	public ArrayList<CapteurData> FiltreByDate (int yearStart , int MonthStart , int DayStart , int hourStart ,int MinStart,int yearEnd , int MonthEnd , int DayEnd , int hourEnd , int MinEnd) 
 	{
 	

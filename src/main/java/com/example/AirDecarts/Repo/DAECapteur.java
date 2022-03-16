@@ -11,6 +11,8 @@ public interface DAECapteur extends JpaRepository<CapteurData, Integer>{
 	
 	List<CapteurData> findByid (int id);
 	List<CapteurData> findBycapteurfullname (String capteur_fullname);
-	List<CapteurData> findBycodecapteur (int CodeCapteur );
+	List<CapteurData> findBycodecapteur (int codecapteur );
+	int deleteBycodecapteur (int codecapteur);
+	
 
 }

@@ -1,13 +1,17 @@
 package com.example.AirDecarts.Controller;
-
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.Resource;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -39,7 +43,31 @@ public class CapteurController {
 		this.CapteurService.SaveCapteurData(Data);
 		 
 	}
+	
+   @DeleteMapping("/DropCapteurb")	
+    public  void DropCapteurByCode(@RequestParam int codecapteur) {
+	        System.out.print("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+	        System.out.print(codecapteur);
+			   this.CapteurService.DeliteCapteurData(codecapteur);
 
+			    
+			
+		}
+   @GetMapping("/ValueCo2")
+	public 	int AllDataCapteur(@RequestParam float Co2) {
+		
+	   if ( Co2 > 100 ) {
+		   
+		   return 1;
+	   }
+	   
+	   else { return -1 ;
+	   
+	   }
+		
+		
+	}
+    
 	@GetMapping("/AllCapteurDataByDate")
 	public 	List<CapteurData> AllDataCapteur(@RequestParam int yearStart ,@RequestParam int MonthStart ,@RequestParam int DayStart ,@RequestParam int hourStart ,@RequestParam int MinStart,@RequestParam int yearEnd ,@RequestParam int MonthEnd ,@RequestParam int DayEnd ,@RequestParam int hourEnd ,@RequestParam int MinEnd) {
 		
